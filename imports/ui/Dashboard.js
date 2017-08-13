@@ -17,17 +17,23 @@ export default class Dashboard extends Component {
 
   addPerson = e => {
     e.preventDefault();
-
     const { persons, person } = this.state;
-
     this.setState({
       persons: [
         ...persons,
         {
-          id: uuid(),
+          _id: uuid(),
           ...person
         }
       ]
+    })
+  }
+
+  removePerson = _id => {
+    const { persons } = this.state;
+
+    this.setState({
+      persons: persons.filter(person => person._id !== _id)
     })
   }
 
@@ -71,7 +77,10 @@ export default class Dashboard extends Component {
           clearInputFields={this.handleClearForm}
           {...person}
         />
-        <PersonTable persons={this.state.persons}/>
+        <PersonTable 
+          persons={this.state.persons}
+          removePerson={this.removePerson}
+        />
       </div>
     );
   }

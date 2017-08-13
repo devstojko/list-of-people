@@ -15,3 +15,18 @@
 .AddPerson label {
   margin-bottom: 15px;
 }
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.remove {
+  color: black;
+}
+
+.remove:hover {
+  background-color: red;
+  cursor: pointer;
+}
