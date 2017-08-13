@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 
 import PrivateHeader from './PrivateHeader';
 import AddPerson from './components/AddPerson';
 import PersonTable from './components/PersonTable';
-
-import uuid from 'uuid';
-
-console.log(uuid());
 
 export default class Dashboard extends Component {
 
@@ -34,6 +31,21 @@ export default class Dashboard extends Component {
 
     this.setState({
       persons: persons.filter(person => person._id !== _id)
+    })
+  }
+
+  editPerson = (index, dataType, value) => {
+    const { persons } = this.state;
+
+    const newState = persons.map((person, i) => {
+      if (i == index) {
+        return {...person, [dataType]: value}
+      }
+      return person;
+    })
+
+    this.setState({
+      persons: newState
     })
   }
 
@@ -80,6 +92,7 @@ export default class Dashboard extends Component {
         <PersonTable 
           persons={this.state.persons}
           removePerson={this.removePerson}
+          onPersonCellChange={this.editPerson}
         />
       </div>
     );

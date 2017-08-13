@@ -1,6 +1,13 @@
 import React from 'react';
 
-export default function Person({ person, removePerson }) {
+import EditableCell from './EditableCell';
+
+export default function Person({ 
+  person,
+  index, 
+  removePerson, 
+  onPersonCellChange
+ }) {
 
   const {
     _id,
@@ -14,12 +21,42 @@ export default function Person({ person, removePerson }) {
 
   return (
     <tr>
-      <td>{name}</td>
-      <td>{upin}</td>
-      <td>{place}</td>
-      <td>{invoice}</td>
-      <td>{fruitWeight} kg</td>
-      <td>{fruitName}</td>
+      <EditableCell
+        index={index} 
+        cellType={'name'}
+        cellValue={name}
+        onPersonCellChange={onPersonCellChange}
+      />
+      <EditableCell
+        index={index} 
+        cellType={'upin'}
+        cellValue={upin}
+        onPersonCellChange={onPersonCellChange}
+      />
+      <EditableCell
+        index={index} 
+        cellType={'place'}
+        cellValue={place}
+        onPersonCellChange={onPersonCellChange}
+      />
+      <EditableCell
+        index={index} 
+        cellType={'invoice'}
+        cellValue={invoice}
+        onPersonCellChange={onPersonCellChange}
+      />
+      <EditableCell
+        index={index} 
+        cellType={'fruitWeight'}
+        cellValue={fruitWeight}
+        onPersonCellChange={onPersonCellChange}
+      />
+      <EditableCell
+        index={index} 
+        cellType={'fruitName'}
+        cellValue={fruitName}
+        onPersonCellChange={onPersonCellChange}
+      />
       <td onClick={() => removePerson(_id)  } className="remove">x</td>
     </tr>
   );

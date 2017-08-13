@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 
 import Person from './Person';
 
-export default function PersonTable ({ persons, removePerson }) {
+export default function PersonTable ({ 
+  persons,
+  removePerson,
+  onPersonCellChange
+}) {
 
   const person = persons.map((person, index) => {
     return (
       <Person 
         key={person._id} 
         person={person} 
-        removePerson={removePerson}/>
+        index={index}
+        removePerson={removePerson}
+        onPersonCellChange={onPersonCellChange}
+      />
     );
   });
      
