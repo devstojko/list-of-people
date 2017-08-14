@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+import { Meteor } from 'meteor/meteor';
 
 import PrivateHeader from './PrivateHeader';
 import AddPerson from './components/AddPerson';
 import PersonTable from './components/PersonTable';
+
+import { Persons } from '../api/persons';
 
 export default class Dashboard extends Component {
 
@@ -12,27 +15,27 @@ export default class Dashboard extends Component {
     person: {}
   }
 
+  componentDidMount = () => {
+    this.personsTracker = Tracker.autorun(() => {
+      Meteor.subscribe('persons');
+      const persons = Persons.find().fetch();
+      this.setState({ persons });
+    });
+  }
+
+  componentWillUnmount = () => {
+    this.personsTracker.stop();
+  }
+  
+  
+
   addPerson = e => {
+    const { person } = this.state;
     e.preventDefault();
-    const { persons, person } = this.state;
-    this.setState({
-      persons: [
-        ...persons,
-        {
-          _id: uuid(),
-          ...person
-        }
-      ]
-    })
+    Meteor.call('person.insert', person);
   }
 
-  removePerson = _id => {
-    const { persons } = this.state;
-
-    this.setState({
-      persons: persons.filter(person => person._id !== _id)
-    })
-  }
+  removePerson = _id => Meteor.call('person.remove', _id);
 
   editPerson = (index, dataType, value) => {
     const { persons } = this.state;
