@@ -68,19 +68,21 @@ export default class Dashboard extends Component {
   render() {
     const { ...person } = this.state.person;
     return (
-      <div>
+      <div className="Dashboard">
         <PrivateHeader />
-        <AddPerson 
-          onSubmit={this.addPerson} 
-          handleInputChange={this.handleInputChange}
-          clearInputFields={this.handleClearForm}
-          {...person}
-        />
-        <PersonTable 
-          persons={this.state.persons}
-          removePerson={this.removePerson}
-          onPersonCellChange={this.editPerson}
-        />
+        <div className="Dashboard__content">
+          <AddPerson 
+            onSubmit={this.addPerson} 
+            handleInputChange={this.handleInputChange}
+            clearInputFields={this.handleClearForm}
+            {...person}
+          />
+          <PersonTable 
+            persons={this.state.persons}
+            removePerson={this.removePerson}
+            onPersonCellChange={this.editPerson}
+          />
+        </div>
       </div>
     );
   }

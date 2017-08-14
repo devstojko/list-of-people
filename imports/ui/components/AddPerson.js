@@ -81,8 +81,14 @@ export default function AddPerson({
           />
         </label>
 
-        <button>Dodaj poljoprivrednika</button>
-        <button onClick={clearInputFields}>Obrisi sva polja</button>
+        <div className="AddPerson__cta" >
+          <button className="btn btn--block btn--primary">Dodaj poljoprivrednika</button>
+          <button 
+            className="btn btn--block btn--primary" 
+            onClick={clearInputFields} 
+          >
+            Obrisi sva polja</button>
+        </div>
       </form>
     </div>
   );

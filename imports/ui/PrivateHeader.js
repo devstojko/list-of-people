@@ -7,14 +7,16 @@ PrivateHeader.propTypes = {
 }
 
 PrivateHeader.defaultProps = {
-    title: "Dashboard"
+    title: "Spisak lica"
 }
 
 export default function PrivateHeader({title}) {
     return (
-      <div>
-        <h1>{title}</h1>
-        <button onClick={() => Accounts.logout()}>logout</button>
+      <div className="PrivateHeader" >
+        <h1 className="PrivateHeader__title" >{title}</h1>
+        <button 
+            className="btn PrivateHeader__logout" 
+            onClick={() => Accounts.logout()}>logout</button>
       </div>
     );
 }
