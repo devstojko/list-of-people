@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
 import { Meteor } from 'meteor/meteor';
 
-import PrivateHeader from './PrivateHeader';
 import AddPerson from './components/AddPerson';
 import PersonTable from './components/PersonTable';
+import PrivateHeader from './PrivateHeader';
 
 import { Persons } from '../api/persons';
 
@@ -25,10 +24,8 @@ export default class Dashboard extends Component {
 
   componentWillUnmount = () => {
     this.personsTracker.stop();
-  }
+  } 
   
-  
-
   addPerson = e => {
     const { person } = this.state;
     e.preventDefault();
@@ -37,19 +34,8 @@ export default class Dashboard extends Component {
 
   removePerson = _id => Meteor.call('person.remove', _id);
 
-  editPerson = (index, dataType, value) => {
-    const { persons } = this.state;
-
-    const newState = persons.map((person, i) => {
-      if (i == index) {
-        return {...person, [dataType]: value}
-      }
-      return person;
-    })
-
-    this.setState({
-      persons: newState
-    })
+  editPerson = (_id, dataType, value) => {
+    Meteor.call('person.edit', _id, dataType, value);
   }
 
   handleInputChange = e => {
@@ -65,20 +51,9 @@ export default class Dashboard extends Component {
   }
 
   handleClearForm = e => {
-    e.preventDefault();
-
     const { person } = this.state;
-    
-    this.setState({
-      person: {
-        name: '',
-        upin: '',
-        place: '',
-        invoice: '',
-        fruitWeight: '',
-        fruitName: ''
-      }
-    });
+    e.preventDefault();
+    this.setState({ person: {} });
   }
 
   render() {

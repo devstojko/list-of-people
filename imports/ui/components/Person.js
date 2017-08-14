@@ -22,37 +22,37 @@ export default function Person({
   return (
     <tr>
       <EditableCell
-        index={index} 
+        id={_id} 
         cellType={'name'}
         cellValue={name}
         onPersonCellChange={onPersonCellChange}
       />
       <EditableCell
-        index={index} 
+        id={_id} 
         cellType={'upin'}
         cellValue={upin}
         onPersonCellChange={onPersonCellChange}
       />
       <EditableCell
-        index={index} 
+        id={_id} 
         cellType={'place'}
         cellValue={place}
         onPersonCellChange={onPersonCellChange}
       />
       <EditableCell
-        index={index} 
+        id={_id} 
         cellType={'invoice'}
         cellValue={invoice}
         onPersonCellChange={onPersonCellChange}
       />
       <EditableCell
-        index={index} 
+        id={_id} 
         cellType={'fruitWeight'}
         cellValue={fruitWeight}
         onPersonCellChange={onPersonCellChange}
       />
       <EditableCell
-        index={index} 
+        id={_id} 
         cellType={'fruitName'}
         cellValue={fruitName}
         onPersonCellChange={onPersonCellChange}

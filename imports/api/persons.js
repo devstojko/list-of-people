@@ -27,5 +27,11 @@ Meteor.methods({
   },
   'person.remove'(_id) {
     Persons.remove(_id);
+  },
+  'person.edit'(_id, dataType, value) {
+    Persons.update(
+      { _id },
+      { $set: { [dataType]: value }}
+    )
   }
 });

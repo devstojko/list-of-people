@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function EditableCell({ 
-  index, 
+  id, 
   cellType, 
   cellValue, 
   onPersonCellChange 
@@ -13,7 +13,7 @@ export default function EditableCell({
         type='text'
         name={cellType}
         value={cellValue}
-        onChange={(e) => onPersonCellChange(index, cellType ,e.target.value)}
+        onChange={(e) => onPersonCellChange(id, cellType ,e.target.value)}
       />
     </td>
   );
