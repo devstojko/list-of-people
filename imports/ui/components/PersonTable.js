@@ -28,7 +28,7 @@ export default function PersonTable ({
             <th>JMBG / BPG</th>
             <th>Mesto</th>
             <th>Br. računa</th>
-            <th>Težina</th>
+            <th>Težina KG</th>
             <th>Voće</th>
           </tr>
         </thead>

@@ -17,7 +17,8 @@ export default class Dashboard extends Component {
   componentDidMount = () => {
     this.personsTracker = Tracker.autorun(() => {
       Meteor.subscribe('persons');
-      const persons = Persons.find().fetch();
+      const persons = Persons.find(
+        {}, { sort: ['fruitName', 'desc'] }).fetch();
       this.setState({ persons });
     });
   }
@@ -51,9 +52,17 @@ export default class Dashboard extends Component {
   }
 
   handleClearForm = e => {
-    const { person } = this.state;
-    e.preventDefault();
-    this.setState({ person: {} });
+    e.preventDefault();    
+    this.setState({
+      person: {
+        name: '',
+        upin: '',
+        place: '',
+        invoice: '',
+        fruitWeight: '',
+        fruitName: ''
+      }
+    });
   }
 
   render() {
