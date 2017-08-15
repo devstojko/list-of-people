@@ -16,13 +16,25 @@ if (Meteor.isServer) {
 Meteor.methods({
   'person.insert'(person) {
 
+    const {
+      name,
+      upin,
+      place,
+      invoice,
+      fruitWeight,
+      fruitName
+    } = person;
+
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
+
     Persons.insert({
       _id: uuid(),
       userId: this.userId,
-      ...person
+      name,
+      upin,
+      fruitWeight
     });
   },
   'person.remove'(_id) {
@@ -31,7 +43,9 @@ Meteor.methods({
   'person.edit'(_id, dataType, value) {
     Persons.update(
       { _id },
-      { $set: { [dataType]: value }}
+      { $set: { 
+        [dataType]: value 
+      }}
     )
   }
 });

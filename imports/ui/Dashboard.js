@@ -11,7 +11,8 @@ export default class Dashboard extends Component {
 
   state = {
     persons: [],
-    person: {}
+    person: {},
+    total: []
   }
 
   componentDidMount = () => {
@@ -20,7 +21,18 @@ export default class Dashboard extends Component {
       const persons = Persons.find(
         {}, { sort: ['fruitName', 'desc'] }).fetch();
       this.setState({ persons });
+
+      Meteor.call('getPerson', (err, res) => {
+        if (err) {
+          console.log(err);
+        } else {
+          this.setState({total: res})
+        }
+      });
+      
+      
     });
+    
   }
 
   componentWillUnmount = () => {
@@ -72,10 +84,7 @@ export default class Dashboard extends Component {
         <PrivateHeader />
         <div className="Dashboard__content">
           <AddPerson 
-            onSubmit={this.addPerson} 
-            handleInputChange={this.handleInputChange}
-            clearInputFields={this.handleClearForm}
-            {...person}
+           
           />
           <PersonTable 
             persons={this.state.persons}
