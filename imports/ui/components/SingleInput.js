@@ -14,18 +14,22 @@ FormGroup.propTypes = {
   content: PropTypes.oneOfType([
     string,
     number
-  ]).isRequired
+  ]).isRequired,
+  typeOfData: PropTypes.oneOf([
+    'string',
+    'number'
+  ])
 };
 
-export default function FormGroup(props) {
-  const {
-    name,
-    title,
-    inputType,
-    content,
-    controlFunc,
-    placeholder
-  } = props;
+export default function FormGroup({
+  name,
+  title,
+  inputType,
+  content,
+  controlFunc,
+  placeholder
+}) {
+
   return (
     <div className="FormGroup">
       <label htmlFor={name} className="FormGroup__label">{title}</label>
@@ -35,7 +39,8 @@ export default function FormGroup(props) {
         type={inputType}
         value={content}
         onChange={(e) => controlFunc(name, e.target.value)}
-        placeholder={placeholder} />
+        placeholder={placeholder}
+      />
     </div>
   );
 }

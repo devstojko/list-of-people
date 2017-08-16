@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 
 import AddPerson from './components/AddPerson';
 import PersonTable from './components/PersonTable';
@@ -11,25 +12,29 @@ export default class Dashboard extends Component {
 
   state = {
     persons: [],
-    person: {},
     total: []
   }
 
   componentDidMount = () => {
     this.personsTracker = Tracker.autorun(() => {
+
       Meteor.subscribe('persons');
+
       const persons = Persons.find(
         {}, { sort: ['fruitName', 'desc'] }).fetch();
-      this.setState({ persons });
 
       Meteor.call('getPerson', (err, res) => {
         if (err) {
           console.log(err);
-        } else {
-          this.setState({total: res})
         }
+        Session.set('people', res);
       });
-      
+
+      this.getSes = Session.get('people');
+          
+      this.setState({
+        persons
+      });
       
     });
     
@@ -38,47 +43,34 @@ export default class Dashboard extends Component {
   componentWillUnmount = () => {
     this.personsTracker.stop();
   } 
-  
-  addPerson = e => {
-    const { person } = this.state;
-    e.preventDefault();
-    Meteor.call('person.insert', person);
-  }
 
   removePerson = _id => Meteor.call('person.remove', _id);
 
   editPerson = (_id, dataType, value) => {
+
+    if (dataType === 'fruitWeight') {
+      value = Number(value)
+    }
+
     Meteor.call('person.edit', _id, dataType, value);
   }
 
-  handleInputChange = e => {
-    const { person } = this.state;
-    const { name, value } = e.target;
-
-    this.setState({
-      person: {
-        ...person,
-        [name]: value
-      }
-    });
-  }
-
-  handleClearForm = e => {
-    e.preventDefault();    
-    this.setState({
-      person: {
-        name: '',
-        upin: '',
-        place: '',
-        invoice: '',
-        fruitWeight: '',
-        fruitName: ''
-      }
-    });
-  }
-
   render() {
-    const { ...person } = this.state.person;
+    const { persons } = this.state;
+
+    if (this.getSes !== undefined) {
+      this.renderTotal = this.getSes.map((item, i) => {
+        return (
+          <div key={i}>
+            <p>{`Ime: ${item._id}`}</p>
+            <p>{`Ukupna tezina: ${item.total}`}</p>
+          </div>
+        );
+      })
+    }
+
+   
+
     return (
       <div className="Dashboard">
         <PrivateHeader />
@@ -87,10 +79,11 @@ export default class Dashboard extends Component {
            
           />
           <PersonTable 
-            persons={this.state.persons}
+            persons={persons}
             removePerson={this.removePerson}
             onPersonCellChange={this.editPerson}
           />
+          {this.renderTotal}
         </div>
       </div>
     );
