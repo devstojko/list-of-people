@@ -4,6 +4,7 @@ import { Session } from 'meteor/session';
 
 import AddPerson from './components/AddPerson';
 import PersonTable from './components/PersonTable';
+import Statement from './components/Statement';
 import PrivateHeader from './PrivateHeader';
 
 import { Persons } from '../api/persons';
@@ -27,17 +28,14 @@ export default class Dashboard extends Component {
         if (err) {
           console.log(err);
         }
-        Session.set('people', res);
+        Session.set('total', res);
       });
-
-      this.getSes = Session.get('people');
           
       this.setState({
-        persons
+        persons,
+        total: Session.get('total')       
       });
-      
     });
-    
   }
 
   componentWillUnmount = () => {
@@ -56,34 +54,28 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const { persons } = this.state;
+    const { persons, total } = this.state;
 
-    if (this.getSes !== undefined) {
-      this.renderTotal = this.getSes.map((item, i) => {
+    if (total !== undefined) {
+      this.renderTotal = total.map((item, i) => {
         return (
-          <div key={i}>
-            <p>{`Ime: ${item._id}`}</p>
-            <p>{`Ukupna tezina: ${item.total}`}</p>
-          </div>
+          <Statement key={i} person={item}/>
         );
       })
     }
-
-   
 
     return (
       <div className="Dashboard">
         <PrivateHeader />
         <div className="Dashboard__content">
-          <AddPerson 
-           
-          />
+          <AddPerson />
+          <h2>Spisak poljoprivrednika</h2>
           <PersonTable 
             persons={persons}
             removePerson={this.removePerson}
             onPersonCellChange={this.editPerson}
           />
-          {this.renderTotal}
+         {this.renderTotal}
         </div>
       </div>
     );

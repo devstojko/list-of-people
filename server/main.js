@@ -5,20 +5,24 @@ import '../imports/api/users';
 
 Meteor.methods({
   'getPerson'() {
-    const pipeline = [{ 
-      $group: {
-        _id: "$name",
-        total: { $sum: "$fruitWeight"}
+
+    const pipeline = [
+      {
+        $group: { 
+          _id: { 
+            upin: "$upin", 
+            fruitName: "$fruitName"
+          },
+          fruitWeight: { $sum: "$fruitWeight"},
+          invoice: { $push: "$invoice" },
+          name: { $first: "$name"},
+          place: { $first: "$place" },
+          upin: { $first: "$upin" },
+          fruitName: {$first: "$fruitName" }
+        }
       }
-    }];
-  
+    ]
+
     return Persons.aggregate(pipeline);
   }
-})
-
-
-/*
-Meteor.startup(() => {
-    
 });
-*/

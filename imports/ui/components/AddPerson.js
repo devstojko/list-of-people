@@ -79,6 +79,7 @@ export default class AddPerson extends Component {
           className="AddPerson__form"
           onSubmit={this.handleFormSubmit} >
 
+          <div className="AddPerson__formFields">
           <SingleInput 
             inputType={'text'}
             title={'Ime i prezime'}
@@ -102,7 +103,7 @@ export default class AddPerson extends Component {
           />
           <SingleInput 
             inputType={'text'}
-            title={'Racun, otkupni blok'}
+            title={'Broj racuna'}
             name={'invoice'}
             controlFunc={this.handleOnInputCnage}
             content={invoice}
@@ -121,6 +122,8 @@ export default class AddPerson extends Component {
             controlFunc={this.handleOnInputCnage}
             content={fruitName}
           />
+          </div>
+          
           <div className="AddPerson__cta" >
             <button
               className="btn btn--block btn--primary"

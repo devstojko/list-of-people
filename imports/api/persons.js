@@ -32,9 +32,7 @@ Meteor.methods({
     Persons.insert({
       _id: uuid(),
       userId: this.userId,
-      name,
-      upin,
-      fruitWeight
+      ...person
     });
   },
   'person.remove'(_id) {

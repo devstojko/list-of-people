@@ -20,22 +20,21 @@ export default function PersonTable ({
     );
   });
      
-  return (<div>
-      <table className="PersonsTable" >
-        <thead>
-          <tr>
-            <th>Ime i prezime</th>
-            <th>JMBG / BPG</th>
-            <th>Mesto</th>
-            <th>Br. računa</th>
-            <th>Težina KG</th>
-            <th>Voće</th>
-          </tr>
-        </thead>
-        <tbody>
-          { person }
-        </tbody>  
-      </table>
-    </div>
+  return (
+    <table className="PersonsTable" >
+      <thead>
+        <tr>
+          <th>Ime i prezime</th>
+          <th>JMBG / BPG</th>
+          <th>Mesto</th>
+          <th>Br. računa</th>
+          <th>Težina KG</th>
+          <th>Voće</th>
+        </tr>
+      </thead>
+      <tbody>
+        { person }
+      </tbody>  
+    </table>
   );
 }
