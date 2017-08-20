@@ -69,7 +69,6 @@ export default class Dashboard extends Component {
         <PrivateHeader />
         <div className="Dashboard__content">
           <AddPerson />
-          <h2>Spisak poljoprivrednika</h2>
           <PersonTable 
             persons={persons}
             removePerson={this.removePerson}

@@ -5,9 +5,8 @@
 @import './components/PersonsTable';
 @import './components/AddPerson';
 @import './components/FormGroup';
-
-
-
+@import './components/Statement';
+@import './components/Paper';
 
 .FormGroup {
   &:not(:first-child) {
@@ -45,11 +44,14 @@
   cursor: pointer;
   font-size: 15px;
   color: white;
-  width: 100%;
-  display: block;
 
   &:not(:first-child) {
     margin-left: 10px;
+  }
+
+  &--block {
+    width: 100%;
+    display: block;
   }
 
   &--success {
