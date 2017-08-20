@@ -73,73 +73,71 @@ export default class AddPerson extends Component {
       fruitName
     } = this.state;
     return (
-      <Paper>
-        <div className="AddPerson">
-          <h3>Poljoprivrednik</h3>
-    
-          <form 
-            className="AddPerson__form"
-            onSubmit={this.handleFormSubmit} >
+      <div className="AddPerson Paper">
+        <h3>Poljoprivrednik</h3>
+  
+        <form 
+          className="AddPerson__form"
+          onSubmit={this.handleFormSubmit} >
 
-            <div className="AddPerson__formFields">
-            <FormGroup 
-              inputType={'text'}
-              title={'Ime i prezime'}
-              name={'name'}
-              controlFunc={this.handleOnInputCnage}
-              content={name}
-            />
-            <FormGroup 
-              inputType={'text'}
-              title={'JMBG ili BPG'}
-              name={'upin'}
-              controlFunc={this.handleOnInputCnage}
-              content={upin}
-            />
-            <FormGroup 
-              inputType={'text'}
-              title={'Mesto'}
-              name={'place'}
-              controlFunc={this.handleOnInputCnage}
-              content={place}
-            />
-            <FormGroup 
-              inputType={'text'}
-              title={'Broj racuna'}
-              name={'invoice'}
-              controlFunc={this.handleOnInputCnage}
-              content={invoice}
-            />
-            <FormGroup 
-              inputType={'text'}
-              title={'Tezina'}
-              name={'fruitWeight'}
-              controlFunc={this.handleOnInputCnage}
-              content={fruitWeight}
-            />
-            <FormGroup 
-              inputType={'text'}
-              title={'Voce'}
-              name={'fruitName'}
-              controlFunc={this.handleOnInputCnage}
-              content={fruitName}
-            />
-            </div>
-            
-            <div className="AddPerson__cta" >
-              <button
-                className="btn btn--block btn--success"
-                type="submit"
-              >Dodaj poljoprivrednika</button>
-              <button 
-                className="btn btn--block btn--danger" 
-                onClick={this.handleClearForm}
-              >
-                Obrisi sva polja</button>
-            </div>
-          </form>
-        </div>
-      </Paper>
+          <div className="AddPerson__formFields">
+          <FormGroup 
+            inputType={'text'}
+            title={'Ime i prezime'}
+            name={'name'}
+            controlFunc={this.handleOnInputCnage}
+            content={name}
+          />
+          <FormGroup 
+            inputType={'text'}
+            title={'JMBG ili BPG'}
+            name={'upin'}
+            controlFunc={this.handleOnInputCnage}
+            content={upin}
+          />
+          <FormGroup 
+            inputType={'text'}
+            title={'Mesto'}
+            name={'place'}
+            controlFunc={this.handleOnInputCnage}
+            content={place}
+          />
+          <FormGroup 
+            inputType={'text'}
+            title={'Broj racuna'}
+            name={'invoice'}
+            controlFunc={this.handleOnInputCnage}
+            content={invoice}
+          />
+          <FormGroup 
+            inputType={'text'}
+            title={'Tezina'}
+            name={'fruitWeight'}
+            controlFunc={this.handleOnInputCnage}
+            content={fruitWeight}
+          />
+          <FormGroup 
+            inputType={'text'}
+            title={'Voce'}
+            name={'fruitName'}
+            controlFunc={this.handleOnInputCnage}
+            content={fruitName}
+          />
+          </div>
+          
+          <div className="AddPerson__cta" >
+            <button
+              className="btn btn--block btn--success"
+              type="submit"
+            >Dodaj poljoprivrednika</button>
+            <button 
+              className="btn btn--block btn--danger" 
+              onClick={this.handleClearForm}
+            >
+              Obrisi sva polja</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

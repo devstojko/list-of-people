@@ -42,7 +42,7 @@ Meteor.methods({
     Persons.update(
       { _id },
       { $set: { 
-        [dataType]: value 
+        [dataType]: value
       }}
     )
   }

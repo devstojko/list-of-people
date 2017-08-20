@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session';
 
 import AddPerson from './components/AddPerson';
-import PersonTable from './components/PersonTable';
+import PersonsTable from './components/PersonsTable';
 import Statement from './components/Statement';
 import PrivateHeader from './PrivateHeader';
 
@@ -69,12 +69,12 @@ export default class Dashboard extends Component {
         <PrivateHeader />
         <div className="Dashboard__content">
           <AddPerson />
-          <PersonTable 
+          
+          <PersonsTable 
             persons={persons}
             removePerson={this.removePerson}
             onPersonCellChange={this.editPerson}
           />
-          <div className="page-break"></div>
          {this.renderTotal}
         </div>
       </div>

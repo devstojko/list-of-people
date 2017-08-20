@@ -24,14 +24,13 @@
   }
 }
 
-
-
 .remove {
-  color: black;
+  background-color: #F44336;
+  color: white;
+  font-weight: bold;
 }
 
 .remove:hover {
-  background-color: red;
   cursor: pointer;
 }
 
@@ -65,7 +64,35 @@
 
 
 
+@media print {
 
+  .remove {
+    display: none;
+  }
+
+  .Dashboard__content {
+    padding: 0;
+  }
+
+  .Paper {
+    padding: 0;
+    width: 21cm;
+    height: 29.5cm;
+    margin-bottom: 0;
+  }
+
+  .Statement {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .AddPerson,
+  .PrivateHeader {
+    display: none;
+  }
+
+}
 
 
 

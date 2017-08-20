@@ -1,0 +1,14 @@
+.Statement {
+
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__text {
+    margin-bottom: 15px;
+  }
+  
+  b::first-letter {
+    text-transform: capitalize
+  }
+}

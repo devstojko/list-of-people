@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
 import Person from './Person';
-import Paper from './Paper';
 
-export default function PersonTable ({ 
+export default function PersonsTable ({ 
   persons,
   removePerson,
   onPersonCellChange
@@ -22,9 +21,9 @@ export default function PersonTable ({
   });
      
   return (
-    <Paper>
-        <h3>Spisak poljoprivrednika</h3>
-        <table className="PersonsTable" >
+    <div className="PersonsTable Paper">
+      <h3>Spisak poljoprivrednika</h3>
+      <table className="PersonsTable__table" >
         <thead>
           <tr>
             <th>Ime i prezime</th>
@@ -39,6 +38,6 @@ export default function PersonTable ({
           { person }
         </tbody>  
       </table>
-    </Paper>
+    </div>
   );
 }
