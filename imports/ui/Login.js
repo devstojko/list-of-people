@@ -22,13 +22,13 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="boxed-view" >
-        <div className="boxed-view__box">
+      <div className="BoxedView" >
+        <div className="BoxedView__box">
           <h1>Login</h1>
 
           {this.state.error && <p className="error-box" >{this.state.error}</p>}
 
-          <form className="boxed-view__form" onSubmit={this.onSubmit} noValidate>
+          <form className="BoxedView__form" onSubmit={this.onSubmit} noValidate>
             <input
               ref={(el) => { this.email = el; }}
               type="email"
@@ -43,7 +43,7 @@ export default class Login extends Component {
               placeholder="Password"
               className="input"
             />
-            <button className="button button--primary" >Login button</button>
+            <button className="btn btn--primary" >Login button</button>
           </form>
           <Link to="/singup">Need an account?</Link>
         </div>

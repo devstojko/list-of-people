@@ -33,13 +33,13 @@ export default class Singup extends Component {
 
   render() {
     return (
-      <div className="boxed-view" >
-        <div className="boxed-view__box">
+      <div className="BoxedView" >
+        <div className="BoxedView__box">
           <h1>Singup</h1>
 
           {this.state.error && <p>{this.state.error}</p>}
 
-          <form className="boxed-view__form" onSubmit={this.onSubmit} noValidate>
+          <form className="BoxedView__form" onSubmit={this.onSubmit} noValidate>
             <input
               ref={(el) => { this.email = el; }}
               type="email"
@@ -54,7 +54,7 @@ export default class Singup extends Component {
               placeholder="Password"
               className="input"
             />
-            <button className="button button--primary" >Create Account</button>
+            <button className="btn btn--primary" >Create Account</button>
           </form>
           <Link to="/">Back to login page</Link>
         </div>

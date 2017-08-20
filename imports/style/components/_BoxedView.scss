@@ -1,0 +1,32 @@
+.BoxedView {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2196F3;
+ 
+  &__box {
+    max-width: 320px;
+    background-color: white;
+    padding: 25px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      width: 250px;
+      height: 50px;
+      margin-bottom: 25px;
+      padding: 5px;
+      background-color: rgba(0, 0, 0, .1)
+    }
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 25px;
+  }
+}

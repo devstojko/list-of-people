@@ -6,6 +6,7 @@
 @import './components/AddPerson';
 @import './components/FormGroup';
 @import './components/Statement';
+@import './components/BoxedView';
 @import './components/Paper';
 
 .remove {
@@ -29,13 +30,13 @@
   font-size: 15px;
   color: white;
 
-  &:not(:first-child) {
-    margin-left: 10px;
-  }
-
   &--block {
     width: 100%;
     display: block;
+  }
+
+  &--primary {
+    background-color: #2196F3;
   }
 
   &--success {
