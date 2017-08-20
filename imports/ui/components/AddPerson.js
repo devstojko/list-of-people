@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 
-import SingleInput from './SingleInput';
+import FormGroup from './FormGroup';
 
 export default class AddPerson extends Component {
   
@@ -80,42 +80,42 @@ export default class AddPerson extends Component {
           onSubmit={this.handleFormSubmit} >
 
           <div className="AddPerson__formFields">
-          <SingleInput 
+          <FormGroup 
             inputType={'text'}
             title={'Ime i prezime'}
             name={'name'}
             controlFunc={this.handleOnInputCnage}
             content={name}
           />
-          <SingleInput 
+          <FormGroup 
             inputType={'text'}
             title={'JMBG ili BPG'}
             name={'upin'}
             controlFunc={this.handleOnInputCnage}
             content={upin}
           />
-          <SingleInput 
+          <FormGroup 
             inputType={'text'}
             title={'Mesto'}
             name={'place'}
             controlFunc={this.handleOnInputCnage}
             content={place}
           />
-          <SingleInput 
+          <FormGroup 
             inputType={'text'}
             title={'Broj racuna'}
             name={'invoice'}
             controlFunc={this.handleOnInputCnage}
             content={invoice}
           />
-          <SingleInput 
+          <FormGroup 
             inputType={'text'}
             title={'Tezina'}
             name={'fruitWeight'}
             controlFunc={this.handleOnInputCnage}
             content={fruitWeight}
           />
-          <SingleInput 
+          <FormGroup 
             inputType={'text'}
             title={'Voce'}
             name={'fruitName'}
@@ -126,11 +126,11 @@ export default class AddPerson extends Component {
           
           <div className="AddPerson__cta" >
             <button
-              className="btn btn--block btn--primary"
+              className="btn btn--success"
               type="submit"
             >Dodaj poljoprivrednika</button>
             <button 
-              className="btn btn--block btn--primary" 
+              className="btn btn--danger" 
               onClick={this.handleClearForm}
             >
               Obrisi sva polja</button>

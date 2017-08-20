@@ -1,58 +1,31 @@
 @import './variables';
 @import './base';
 
+@import './components/PrivateHeader';
+@import './components/PersonsTable';
 @import './components/AddPerson';
+@import './components/FormGroup';
 
 
-.Dashboard__content {
-  display: flex;
-  flex-direction: column;
-  padding: 50px 25px 0;
+
+
+.FormGroup {
+  &:not(:first-child) {
+    margin-left: 5px;
+  }
+
+  &__label {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    padding: 8px;
+    background-color: rgba(0, 0, 0, .05);
+  }
 }
 
 
-.AddPerson {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 50px;
-  background-color: white;
-}
-
-.AddPerson__form {
-  display: flex;
-  flex-direction: column;
-}
-
-.AddPerson__formFields {
-  display: flex;
-}
-
-.AddPerson__form input {
-  background-color: #e3e3e3;
-  font-size: 18px;
-  padding: 5px;
-  width: 100%;
-}
-
-.AddPerson h3 {
-  margin-bottom: 30px;
-  font-size: 24px;
-}
-
-.AddPerson label {
-  margin-bottom: 15px;
-}
-
-.AddPerson__cta {
-  display: flex;
-
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
 
 .remove {
   color: black;
@@ -63,10 +36,7 @@ td, th {
   cursor: pointer;
 }
 
-input {
-  border: none;
-  width: 100%;
-}
+
 
 .btn {
   border: none;
@@ -74,44 +44,30 @@ input {
   padding: 15px 25px;
   cursor: pointer;
   font-size: 15px;
-
-}
-
-.btn--block {
+  color: white;
+  width: 100%;
   display: block;
-  width: 100%;
-  margin: 10px 0;
+
+  &:not(:first-child) {
+    margin-left: 10px;
+  }
+
+  &--success {
+    background-color: #4CAF50;
+  }
+
+  &--danger {
+    background-color: #F44336;
+  }
 }
 
-.btn--primary {
-  background-color: #2196F3;
-  color: white;
-}
 
-.PrivateHeader {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 25px;
-  background-color: #2196F3;
-}
 
-.PrivateHeader__title {
-  color: white
-}
 
-.PrivateHeader__logout {
-  color: white;
-  font-size: 16px;
-}
 
-.PersonsTable {
-  width: 100%;
-  padding: 15px;
-  background-color: white;
-}
 
-.FormGroup {
-  margin: 1px;
-}
+
+
+
+
+

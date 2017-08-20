@@ -75,6 +75,7 @@ export default class Dashboard extends Component {
             removePerson={this.removePerson}
             onPersonCellChange={this.editPerson}
           />
+          <div className="page-break"></div>
          {this.renderTotal}
         </div>
       </div>

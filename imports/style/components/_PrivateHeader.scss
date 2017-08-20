@@ -1,0 +1,17 @@
+.PrivateHeader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: #2196F3;
+}
+
+.PrivateHeader__title {
+  color: white
+}
+
+.PrivateHeader__logout {
+  color: white;
+  font-size: 16px;
+}

@@ -35,6 +35,7 @@ export default function FormGroup({
       <label htmlFor={name} className="FormGroup__label">{title}</label>
       <input 
         className="FormGroup__input"
+        id={name}
         name={name}
         type={inputType}
         value={content}
