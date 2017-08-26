@@ -3,13 +3,14 @@ import { Meteor } from 'meteor/meteor';
 import { Persons } from '../imports/api/persons';
 import '../imports/api/users';
 
+
 Meteor.methods({
   'getPerson'() {
 
     const pipeline = [
-      {
-        $group: { 
-          _id: { 
+      { $match: { userId: this.userId }},
+      { $group: { 
+          _id: {
             upin: "$upin", 
             fruitName: "$fruitName"
           },
@@ -21,8 +22,9 @@ Meteor.methods({
           fruitName: {$first: "$fruitName" }
         }
       }
-    ]
+    ];
+    // stop here
+    return Persons.aggregate(pipeline);  
 
-    return Persons.aggregate(pipeline);
   }
 });

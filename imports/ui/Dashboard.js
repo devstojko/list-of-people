@@ -33,7 +33,7 @@ export default class Dashboard extends Component {
           
       this.setState({
         persons,
-        total: Session.get('total')       
+        total: Session.get('total')      
       });
     });
   }
@@ -55,6 +55,7 @@ export default class Dashboard extends Component {
 
   render() {
     const { persons, total } = this.state;
+
 
     if (total !== undefined) {
       this.renderTotal = total.map((item, i) => {
