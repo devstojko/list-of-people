@@ -56,7 +56,6 @@ export default class Dashboard extends Component {
   render() {
     const { persons, total } = this.state;
 
-
     if (total !== undefined) {
       this.renderTotal = total.map((item, i) => {
         return (
@@ -70,7 +69,6 @@ export default class Dashboard extends Component {
         <PrivateHeader />
         <div className="Dashboard__content">
           <AddPerson />
-          
           <PersonsTable 
             persons={persons}
             removePerson={this.removePerson}

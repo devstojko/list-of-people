@@ -52,30 +52,50 @@
 
 @media print {
 
+  @page {
+    margin: 10mm;
+  }
+
   .remove {
     display: none;
   }
 
+  body {
+    margin: 0;
+  }
+
   .Dashboard__content {
     padding: 0;
+    display: block;
+  }
+
+  .PersonsTable {
+    width: 100%;
+    page-break-after: always;
   }
 
   .Paper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    page-break-after: always;
+    margin: 0;
     padding: 0;
-    width: 21cm;
-    height: 29.5cm;
-    margin-bottom: 0;
   }
 
   .Statement {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    margin-top: 20mm;
   }
 
   .AddPerson,
   .PrivateHeader {
     display: none;
+  }
+
+  .page-break {
+    position: relative;
+    display: block;
+    page-break-before: always;
   }
 
 }

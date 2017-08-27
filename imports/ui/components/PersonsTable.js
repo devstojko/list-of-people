@@ -21,7 +21,7 @@ export default function PersonsTable ({
   });
      
   return (
-    <div className="PersonsTable Paper">
+    <div className="PersonsTable">
       <h3>Spisak poljoprivrednika</h3>
       <table className="PersonsTable__table" >
         <thead>
