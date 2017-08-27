@@ -47,7 +47,12 @@ export default class Dashboard extends Component {
   editPerson = (_id, dataType, value) => {
 
     if (dataType === 'fruitWeight') {
-      value = Number(value)
+      const numbers = /^[0-9]+$/;
+      if (numbers.test(value) || value === '') {
+        value = Number(value)
+      } else {
+        return false;
+      }
     }
 
     Meteor.call('person.edit', _id, dataType, value);
