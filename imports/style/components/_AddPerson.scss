@@ -13,5 +13,11 @@
 
   &__cta {
     display: flex;
+    justify-content: space-between;
+
+    button {
+      flex-basis: 48%;
+      width: 48%;
+    }
   }
 }

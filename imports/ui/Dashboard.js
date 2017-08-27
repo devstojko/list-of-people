@@ -44,6 +44,8 @@ export default class Dashboard extends Component {
 
   removePerson = _id => Meteor.call('person.remove', _id);
 
+  removeAllPersons = () => Meteor.call('person.removeAll');
+
   editPerson = (_id, dataType, value) => {
 
     if (dataType === 'fruitWeight') {
@@ -78,6 +80,7 @@ export default class Dashboard extends Component {
             persons={persons}
             removePerson={this.removePerson}
             onPersonCellChange={this.editPerson}
+            removeAllPersons={this.removeAllPersons}
           />
          {this.renderTotal}
         </div>

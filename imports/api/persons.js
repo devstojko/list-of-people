@@ -38,6 +38,9 @@ Meteor.methods({
   'person.remove'(_id) {
     Persons.remove(_id);
   },
+  'person.removeAll'() {
+    Persons.remove({userId: this.userId});
+  },
   'person.edit'(_id, dataType, value) {
     Persons.update(
       { _id },

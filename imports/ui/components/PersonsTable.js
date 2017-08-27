@@ -5,7 +5,8 @@ import Person from './Person';
 export default function PersonsTable ({ 
   persons,
   removePerson,
-  onPersonCellChange
+  onPersonCellChange,
+  removeAllPersons
 }) {
 
   const person = persons.map((person, index) => {
@@ -38,11 +39,19 @@ export default function PersonsTable ({
           { person }
         </tbody>  
       </table>
-      <button 
-        className="PersonsTable__cta btn btn--primary" 
-        onClick={() => window.print() } >
-          Stampaj spisak i izjave
+      <div className="PersonsTable__cta">
+        <button 
+          className="btn btn--primary" 
+          onClick={() => window.print() } >
+            Stampaj spisak i izjave
         </button>
+        
+        <button 
+          className="btn btn--danger"
+          onClick={removeAllPersons}>
+          Obrisi sve poljoprivrednike
+        </button>
+      </div>
     </div>
   );
 }

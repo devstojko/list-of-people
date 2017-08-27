@@ -127,11 +127,11 @@ export default class AddPerson extends Component {
           
           <div className="AddPerson__cta" >
             <button
-              className="btn btn--block btn--success"
+              className="btn btn--success"
               type="submit"
             >Dodaj poljoprivrednika</button>
             <button 
-              className="btn btn--block btn--danger" 
+              className="btn btn--danger" 
               onClick={this.handleClearForm}
             >
               Obrisi sva polja</button>
