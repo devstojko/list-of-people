@@ -38,6 +38,11 @@ export default function PersonsTable ({
           { person }
         </tbody>  
       </table>
+      <button 
+        className="PersonsTable__cta btn btn--primary" 
+        onClick={() => window.print() } >
+          Stampaj spisak i izjave
+        </button>
     </div>
   );
 }

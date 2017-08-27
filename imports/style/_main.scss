@@ -72,6 +72,10 @@
   .PersonsTable {
     width: 100%;
     page-break-after: always;
+
+    &__cta {
+      display: none;
+    }
   }
 
   .Paper {
